@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JEE COLLEGE PREDICTOR</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <!-- <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" /> -->
+
+
+</head>
+
+<body>
+    <nav>
+        <div class="navbar">
+            <div class="logo">
+                <img src="logo.jpg" alt="">
+            </div>
+            <div class="navitems">
+                <ul>
+                    <li>Home</li>
+                    <li>About Us</li>
+                    <li>Contact Us</li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="heading">
+        <p style="font-size: 28px;">JEE College Predictor 2023</p>
+        <P style="font-size: 20px;">Enter your JEE rank to predict colleges that you can get admission in</P>
+    </div>
+
+    <div class="container">
+        <div class="box">
+            <div class="title">ENTER YOUR EXAM DETAILS</div>
+            <form action="#">
+                <div id="section-1">
+                    <div class="user-info">
+                        <div class="filter">
+                            <div class="name">
+                                <label for="name">Name: </label>
+                                <input type="text" placeholder="Enter your name" required>
+                            </div>
+                            <div class="material-symbols-outlined" id="symbol-1">filter_alt</div>
+                        </div>
+                        <div class="rank">
+                            <label for="rank">Your rank: </label>
+                            <input type="number" placeholer="Enter general rank" required>
+                        </div>
+                        <div class="category">
+                            <label for="category">Category: </label>
+                            <select name="category" id="category">
+                                <option value="category">Select Category</option>
+                                <option value="open">OPEN</option>
+                                <option value="open-pwd">OPEN (PWD)</option>
+                                <option value="ews">EWS</option>
+                                <option value="ews-pwd">EWS (PWD)</option>
+                                <option value="obc-ncl">OBC-NCL</option>
+                                <option value="obc-ncl-pwd">OBC-NCL (PWD)</option>
+                                <option value="sc">SC</option>
+                                <option value="sc-pwd">SC (PWD)</option>
+                                <option value="st">ST</option>
+                                <option value="st-pwd">ST (PWD)</option>
+                            </select>
+                        </div>
+                        <div class="gender">
+                            <label for="gender">Gender: </label>
+                            <span>Male <input type="radio" name="mygender"></span>
+                            <span>Female <input type="radio" name="mygender"></span>
+                        </div>
+                    </div>
+                    <div class="predict">
+                        <input type="button" value="Predict">
+                    </div>
+                </div>
+
+                <div id="section-2">
+                    <div class="user-info">
+                        <div class="close">
+                            <div class="state">
+                                <label for="state">State: </label>
+                                <input type="text" placeholder="Enter your state" required>
+                            </div>
+                            <div class="material-symbols-outlined" id="symbol-2">close</div>
+                        </div>
+                        <div class="category">
+                            <label for="category">Category: </label>
+                            <select name="category" id="category">
+                                <option value="category">Select Category</option>
+                                <option value="open">OPEN</option>
+                                <option value="open-pwd">OPEN (PWD)</option>
+                                <option value="ews">EWS</option>
+                                <option value="ews-pwd">EWS (PWD)</option>
+                                <option value="obc-ncl">OBC-NCL</option>
+                                <option value="obc-ncl-pwd">OBC-NCL (PWD)</option>
+                                <option value="sc">SC</option>
+                                <option value="sc-pwd">SC (PWD)</option>
+                                <option value="st">ST</option>
+                                <option value="st-pwd">ST (PWD)</option>
+                            </select>
+                        </div>
+                        <div class="rank">
+                            <label for="rank">Your rank: </label>
+                            <input type="number" placeholer="Enter category rank" required>
+                        </div>
+                    </div>
+                    <div class="apply">
+                        <input type="button" value="Apply">
+                    </div>
+                </div>
+
+
+            </form>
+        </div>
+    </div>
+    <script src="predict.js"></script>
+
+</body>
+
+</html>

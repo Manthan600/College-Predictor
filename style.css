@@ -1,0 +1,262 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+nav{
+    background-color: black;
+    width: 100%;
+    /* height: 110px; */
+    position: relative;
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    height: 110px;
+}
+
+.navbar .logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: #252d5d; */
+}
+
+.navbar .logo img{
+    height: 65px;
+    width: 65px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    margin: 10px 10px;
+    margin-left: 60px;
+    padding: 10px 10px;
+}
+
+.navbar .navitems ul{
+    color: whitesmoke;
+    list-style-type: none;
+    display: flex;
+}
+
+.navbar .navitems ul li{
+    font-size: 23px;
+    margin: 25px 30px;
+    padding: 10px 5px;
+}
+
+.navbar .navitems ul li:hover{
+    cursor: pointer;
+    background-color: rgb(116, 19, 19);
+    border-radius: 5px;
+}
+
+
+/* Information of candidate */
+
+.heading{
+    margin: 0px 0px;
+    overflow: hidden;
+    padding: 30px 0;
+    height: 80px;
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: rgb(8, 98, 154);
+    color: #fff;
+    font-weight: bolder;
+    text-align: left;
+}
+
+.heading p{
+    margin: 5px 5px;
+    padding: 5px 0;
+    padding-left: 500px;
+}
+
+
+/* form section */
+
+.container{
+    width: 100%;
+    height: 100vh;  
+    background: linear-gradient(75deg, rgb(225, 241, 241), rgb(189, 235, 231));
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container .box{
+    border: 1px solid rgb(124, 122, 122);
+    background-color: white;
+    margin: 30px 20px;
+    width: 600px;
+}
+
+.container .box .title{
+    font-weight: 600;
+    font-size: 1.3rem;
+    background-color: gold;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0px;
+}
+
+form{
+    margin: 10px 10px;
+    padding: 5px 5px;
+}
+
+form .user-info{
+    display: flex;
+    flex-direction: column;
+}
+
+form .user-info label{
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin: 5px 5px;
+    padding: 5px 5px;
+}
+
+form .user-info input,select{
+    /* max-width: 250px;
+    width: 100%; */
+    height: 30px;
+    margin: 5px 10px;
+}
+
+form .user-info .name input{
+    width: 250px;
+}
+form .user-info .rank input{
+    width: 250px;
+}
+form .user-info .category select{
+    width: 252px;
+}
+
+form .user-info input[type=text]{
+    font-size: 0.9rem;
+}
+
+form .user-info .gender span{
+    font-size: 1.1rem;
+    margin: 5px;
+    margin-left: 10px;
+    display: flex;
+}
+
+form .user-info .gender input[type=radio]{
+    height: 15px;
+    width: 15px;
+}
+
+form .user-info .gender input{
+    margin: 3px 10px;
+}
+
+form .user-info .filter{
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 0;
+}
+
+form .user-info .filter .material-symbols-outlined{
+    height: 12px;
+    width: 12px;
+    margin: 5px 12px;
+}
+
+form .user-info .filter .material-symbols-outlined:hover{
+    font-size: 28px;
+    cursor: pointer;
+    color: darkblue;
+}
+
+form .user-info .name{
+    display: flex;
+    flex-direction: column;
+}
+
+form .user-info .rank{
+    display: flex;
+    flex-direction: column;
+}
+
+form .user-info .category{
+    display: flex;
+    flex-direction: column;
+}
+
+form .user-info .gender{
+    display: flex;
+    flex-direction: column;
+}
+
+form .predict input{
+    margin: 10px 10px;
+    font-size: 1.1rem;
+    padding: 5px 10px;
+    background-color: rgb(236, 105, 29);
+    border-radius: 8px;
+}
+
+form .predict input:hover{
+    color: white;
+    cursor: pointer;
+    background-color: rgb(189, 70, 2);
+    transform: scale(1);
+}
+
+
+form #section-2{
+    display: none;
+}
+
+
+form .apply input{
+    margin: 10px 10px;
+    font-size: 1.1rem;
+    padding: 5px 10px;
+    background-color: rgb(236, 105, 29);
+    border-radius: 8px;
+}
+
+form .apply input:hover{
+    color: white;
+    cursor: pointer;
+    background-color: rgb(189, 70, 2);
+    transform: scale(1);
+}
+
+form .state{
+    display: flex;  
+    flex-direction: column;
+}
+
+.toggle{
+    display: flex;
+    flex-direction: column;
+}
+
+form .user-info .close{
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 0;
+}
+
+form .user-info .close .material-symbols-outlined{
+    height: 12px;
+    width: 12px;
+    margin: 5px 12px;
+    font-weight: bold;
+}
+
+form .user-info .close .material-symbols-outlined:hover{
+    font-size: 28px;
+    cursor: pointer;
+    color: darkblue;
+}
+
+
+
