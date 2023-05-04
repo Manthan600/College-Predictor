@@ -1,35 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JEE COLLEGE PREDICTOR</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
-    <!-- <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" /> -->
+{% block body %}
 
 
-</head>
 
-<body>
-    <nav>
-        <div class="navbar">
-            <div class="logo">
-                <img src="logo.jpg" alt="">
-            </div>
-            <div class="navitems">
-                <ul>
-                    <li>Home</li>
-                    <li>About Us</li>
-                    <li>Contact Us</li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+
+
 
     <div class="heading">
         <p style="font-size: 28px;">JEE College Predictor 2023</p>
@@ -39,23 +15,23 @@
     <div class="container">
         <div class="box">
             <div class="title">ENTER YOUR EXAM DETAILS</div>
-            <form action="#">
+            <form action="/result" method="POST" id="myform">
                 <div id="section-1">
                     <div class="user-info">
                         <div class="filter">
                             <div class="name">
                                 <label for="name">Name: </label>
-                                <input type="text" placeholder="Enter your name" required>
+                                <input type="text" id="name" name="name" placeholder="Enter your name" required>
                             </div>
                             <div class="material-symbols-outlined" id="symbol-1">filter_alt</div>
                         </div>
                         <div class="rank">
                             <label for="rank">Your rank: </label>
-                            <input type="number" placeholer="Enter general rank" required>
+                            <input type="number" name="rank" id="rank" placeholer="Enter general rank" required>
                         </div>
                         <div class="category">
                             <label for="category">Category: </label>
-                            <select name="category" id="category">
+                            <select name="category" id="category" name="category" >
                                 <option value="category">Select Category</option>
                                 <option value="open">OPEN</option>
                                 <option value="open-pwd">OPEN (PWD)</option>
@@ -71,15 +47,19 @@
                         </div>
                         <div class="gender">
                             <label for="gender">Gender: </label>
-                            <span>Male <input type="radio" name="mygender"></span>
-                            <span>Female <input type="radio" name="mygender"></span>
+                            <select name="gender" id="gender" name="gender" >
+                                <option value="category">Select Gender</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                            </select>
                         </div>
                     </div>
                     <div class="predict">
-                        <input type="button" value="Predict">
+                        <input type="submit" value="Predict" form="myform">
                     </div>
                 </div>
-
+            </form>
+<!--             
                 <div id="section-2">
                     <div class="user-info">
                         <div class="close">
@@ -111,16 +91,14 @@
                         </div>
                     </div>
                     <div class="apply">
-                        <input type="button" value="Apply">
+                        <input type="submit" value="Apply" form="myform">
                     </div>
                 </div>
 
 
-            </form>
+            </form> -->
         </div>
     </div>
-    <script src="predict.js"></script>
 
-</body>
-
-</html>
+    {% endblock body %}
+    
