@@ -1,6 +1,6 @@
 from flask import Flask,render_template,request,redirect
-from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy import create_engine
+# from flask_sqlalchemy import SQLAlchemy
+# from sqlalchemy import create_engine
 from flask_mysqldb import MySQL
 
 # My db connection
@@ -20,6 +20,11 @@ from flask_mysqldb import MySQL
 app = Flask(__name__)
 
 mysql=MySQL(app)
+
+# app.config['MYSQL_HOST'] = 'sql12.freesqldatabase.com'
+# app.config['MYSQL_USER'] = 'sql12616044'
+# app.config['MYSQL_PASSWORD'] = '2NnaQKUvcW'
+# app.config['MYSQL_DB'] = 'sql12616044'
 
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
@@ -44,8 +49,8 @@ app.config['MYSQL_DB'] = 'college_predictor'
 
 
 def get_result(rank, category ,gender ):
-    low=rank-200
-    high=rank+200
+    # low=rank-200
+    # high=rank+200
     cur=mysql.connection.cursor()
     if (gender=="Male"):
         male="Gender-Neutral"
@@ -55,8 +60,51 @@ def get_result(rank, category ,gender ):
 
     fetchdata=cur.fetchall()
     cur.close()
-    return fetchdata
 
+    cur=mysql.connection.cursor()
+    cur.execute("SELECT DISTINCT Academic_Program FROM jee_adv")
+    academic=cur.fetchall()
+    cur.close()
+
+    cur=mysql.connection.cursor()
+    cur.execute("SELECT DISTINCT Institute FROM jee_adv")
+    institute=cur.fetchall()
+    cur.close()
+    return fetchdata,academic,institute
+
+def get_result_from_filters(rank, category ,gender,college,program ):
+    # low=rank-200
+    # high=rank+200
+    cur=mysql.connection.cursor()
+    if (gender=="Male"):
+        male="Gender-Neutral"
+        if (college and program):
+            cur.execute(f"SELECT * FROM jee_adv WHERE closing_rank > %s AND seat_type = %s AND Gender = %s AND Institute = %s AND Academic_Program = %s ORDER BY Closing_rank ASC",(rank,category,male,college,program))
+        elif(college):
+            cur.execute(f"SELECT * FROM jee_adv WHERE closing_rank > %s AND seat_type = %s AND Gender = %s AND Institute = %s  ORDER BY Closing_rank ASC",(rank,category,male,college))
+        elif(program):
+            cur.execute(f"SELECT * FROM jee_adv WHERE closing_rank > %s AND seat_type = %s AND Gender = %s AND Academic_Program = %s ORDER BY Closing_rank ASC",(rank,category,male,program))
+    else:
+        if (college and program):
+            cur.execute(f"SELECT * FROM jee_adv WHERE closing_rank > %s AND seat_type = %s AND Institute = %s AND Academic_Program = %s ORDER BY Closing_rank ASC",(rank,category,college,program))
+        elif(college):
+            cur.execute(f"SELECT * FROM jee_adv WHERE closing_rank > %s AND seat_type = %s AND Institute = %s  ORDER BY Closing_rank ASC",(rank,category,college))
+        elif(program):
+            cur.execute(f"SELECT * FROM jee_adv WHERE closing_rank > %s AND seat_type = %s AND Academic_Program = %s ORDER BY Closing_rank ASC",(rank,category,program))
+
+    fetchdata=cur.fetchall()
+    cur.close()
+
+    cur=mysql.connection.cursor()
+    cur.execute("SELECT DISTINCT Academic_Program FROM jee_adv")
+    academic=cur.fetchall()
+    cur.close()
+
+    cur=mysql.connection.cursor()
+    cur.execute("SELECT DISTINCT Institute FROM jee_adv")
+    institute=cur.fetchall()
+    cur.close()
+    return fetchdata,academic,institute
 
 
 
@@ -74,30 +122,33 @@ def hello_world():
 #         data = conn.execute(f"SELECT * FROM `demo`")
 #     # data = engine.execute('SELECT * FROM `demo`')
 #     return data
+class user_details():
+    u_name="u_name"
+    rank=0
+    category="none"
+    gender="none"
 
-
+a=user_details()
 
 
 @app.route('/result',methods=["POST","GET"])
 def result():
+    print("apply pressed")
     if request.method=="POST":
         print("this is a post method")
-        u_name=request.form.get('name')
-        rank=int(request.form.get('rank'))
-        category=request.form.get('category')
-        gender=request.form.get('gender')
-        print(u_name,rank,category,gender)
-        fetchdata = get_result(rank,category,gender)
-    
-    # with engine.connect() as conn:
-    #     result = conn.execute(stmt)
-    # query=db.engine.execute("SELECT * FROM `demo`")
-    # us=Demo.query.filter_by(id=1)
-    # print(us)
-    # query=get_data()
-    
-
-
-    return render_template('result.html',query=fetchdata)
+        a.u_name=request.form.get('name')
+        a.rank=int(request.form.get('rank'))
+        a.category=request.form.get('category')
+        a.gender=request.form.get('gender') 
+        print(a.u_name,a.rank,a.category,a.gender)
+        fetchdata,academic,institute = get_result(a.rank,a.category,a.gender)
+        return render_template('result.html',query=fetchdata,branch=academic,college=institute)
+    if request.method=="GET":
+        print("this is get method")
+        college=str(request.args.get('college'))
+        program=str(request.args.get('branch'))
+        print(college,program)
+        fetchdata,academic,institute = get_result_from_filters(a.rank,a.category,a.gender,college,program)
+        return render_template('result.html',query=fetchdata,branch=academic,college=institute)
 
 app.run(debug=True)
