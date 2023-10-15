@@ -68,6 +68,84 @@ nav .navbar .navitems ul li a:hover{
     /* padding: 1rem; */
 }
 
+
+/* Card Styles */
+.card {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 280px;
+    width: 60%;
+    background-color: #fff;
+    border-radius: 10px;
+    border: 2px solid #007BFF;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+    margin: 20px;
+    margin-left: 300px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+    color: #333;
+    cursor: pointer;
+    transform-origin: center;
+    z-index: -1;
+}
+
+.card:hover {
+    transform: scale(1.01);
+    box-shadow: 0 10px 12px rgba(0, 0, 0, 0.3);
+    color: #007BFF;
+}
+
+/* Card Content Styles */
+.card-image {
+    flex: 1;
+    max-width: 50%;
+    overflow: hidden;
+    margin: 10px 50px;
+}
+
+.card-image img {
+    width: 70%;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+}
+
+.card-text {
+    flex: 1;
+    padding: 20px;
+}
+
+.card h2 {
+    color: #fff;
+    background-color: #007BFF;
+    padding: 10px;
+    margin: 0;
+    font-size: 26px;
+    text-align: center;
+    letter-spacing: 2px;
+}
+
+.card p {
+    line-height: 1.4;
+}
+
+/* Service List Styles */
+.card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.card li::before {
+    content: '\2022'; /* Bullet character */
+    color: #007BFF;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+
 /* styling for footer */
 footer .footer{
     background:#000;
