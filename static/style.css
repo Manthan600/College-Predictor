@@ -57,7 +57,7 @@ nav .navbar .navitems ul li a{
     text-decoration: none;
     color: whitesmoke;
     font-weight: 500;
-    padding: 5px 5px;
+    padding: 10px 10px;
 }
 
 nav .navbar .navitems ul li a:hover{
@@ -65,10 +65,74 @@ nav .navbar .navitems ul li a:hover{
     background-color: gold;
     border-radius: 5px;
     color: black;
-    padding: 1rem;
+    /* padding: 1rem; */
 }
 
+/* styling for footer */
+footer .footer{
+    background:#000;
+    padding:30px 0px;
+    font-family: 'Play', sans-serif;
+    text-align:center;
+    }
+    
+    footer .footer .row{
+    width:100%;
+    margin:1% 0%;
+    padding:0.6% 0%;
+    color:gray;
+    font-size:0.8em;
+    }
+    
+    footer .footer .row a{
+    text-decoration:none;
+    color:gray;
+    transition:0.5s;
+    }
 
+    footer .footer .social-icons{
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+    }
+    
+    footer .footer .row a:hover{
+    color:#fff;
+    }
+    
+    footer .footer .row ul{
+    width:100%;
+    }
+    
+    footer .footer .row ul li{
+    display:inline-block;
+    margin:0px 30px;
+    }
+    
+    footer .footer .row a i{
+    font-size:2em;
+    margin:0% 1%;
+    }
+
+    footer .footer .copyright-text{
+        display: flex;
+        justify-content: center;
+    }
+    
+    @media (max-width:720px){
+    footer .footer{
+    text-align:left;
+    padding:5%;
+    }
+    footer .footer .row ul li{
+    display:block;
+    margin:10px 0px;
+    text-align:left;
+    }
+    footer .footer .row a i{
+    margin:0% 3%;
+    }
+    }
 
 
 
@@ -334,6 +398,102 @@ form .user-info .close .material-symbols-outlined:hover{
     transform: scale(1);
     position: relative;
 }
+
+/* styling for download button */
+
+/* body {
+	background-color: #1a1a1a;
+} */
+
+#myform2 .advanced_filter .download-pdf{
+    margin: 10px 7px;
+}
+
+#myform2 .advanced_filter .download-pdf .buttonDownload {
+	display: inline-block;
+	position: relative;
+	padding: 10px 25px;
+    border-radius: 15px;
+	background-color: rgb(143, 143, 239);
+	color: white;
+  
+	font-family: sans-serif;
+	text-decoration: none;
+	font-size: 0.9em;
+	text-align: center;
+	text-indent: 15px;
+}
+
+#myform2 .advanced_filter .download-pdf .buttonDownload:hover {
+	background-color: #333;
+	color: white;
+}
+
+#myform2 .advanced_filter .download-pdf .buttonDownload:before, .buttonDownload:after {
+	content: ' ';
+	display: block;
+	position: absolute;
+	left: 15px;
+	top: 52%;
+}
+
+/* Download box shape  */
+#myform2 .advanced_filter .download-pdf .buttonDownload:before {
+	width: 10px;
+	height: 2px;
+	border-style: solid;
+	border-width: 0 2px 2px;
+}
+
+/* Download arrow shape */
+#myform2 .advanced_filter .download-pdf .buttonDownload:after {
+	width: 0;
+	height: 0;
+	margin-left: 1.5px;
+	margin-top: -7px;
+  
+	border-style: solid;
+	border-width: 4px 4px 0 4px;
+	border-color: transparent;
+	border-top-color: inherit;
+	
+	animation: downloadArrow 2s linear infinite;
+	animation-play-state: paused;
+}
+
+#myform2 .advanced_filter .download-pdf .buttonDownload:hover:before {
+	border-color: #acc713;
+}
+
+#myform2 .advanced_filter .download-pdf .buttonDownload:hover:after {
+	border-top-color: #acc713;
+	animation-play-state: running;
+}
+
+/* keyframes for the download icon anim */
+@keyframes downloadArrow {
+	/* 0% and 0.001% keyframes used as a hackish way of having the button frozen on a nice looking frame by default */
+	0% {
+		margin-top: -7px;
+		opacity: 1;
+	}
+	
+	0.001% {
+		margin-top: -15px;
+		opacity: 0;
+	}
+	
+	50% {
+		opacity: 1;
+	}
+	
+	100% {
+		margin-top: 0;
+		opacity: 0;
+	}
+}
+
+
 
 #myform2 .advanced_filter .college{
     display: flex;

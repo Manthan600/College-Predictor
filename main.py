@@ -28,9 +28,10 @@ mysql=MySQL(app)
 
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = ''
-app.config['MYSQL_DB'] = 'college_predictor'
+app.config['MYSQL_PASSWORD'] = 'root'
+app.config['MYSQL_DB'] = 'clg_predictor'
 
+# root@127.0.0.1:3306
 
 
 # class User(db.Model):
