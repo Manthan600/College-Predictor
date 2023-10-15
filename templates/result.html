@@ -30,12 +30,12 @@
         <input type="submit" value="Apply" form="myform2">
       </div>
       <div class="download-pdf">
-        <a href="#" class="buttonDownload">Download</a>
+        <a  class="buttonDownload">Download</a>
       </div>
     </div>
   </form>
   <div class="table-container">
-    <table class="table">
+    <table class="table" id="tableToPDF">
       <thead class="thead-dark">
         <tr>
           <th scope="col">Sr No.</th>
@@ -67,5 +67,14 @@
     </table>
   </div>
 </div>
-
+<script>
+  document.querySelector('.buttonDownload').addEventListener('click', function () {
+    console.log("Download button pressed.");
+    const table = document.getElementById('tableToPDF');
+    html2pdf()
+    .from(table)
+    .save();
+    
+  });
+</script>
 {% endblock body %}

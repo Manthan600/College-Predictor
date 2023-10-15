@@ -28,26 +28,10 @@ mysql=MySQL(app)
 
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'root'
-app.config['MYSQL_DB'] = 'clg_predictor'
+app.config['MYSQL_PASSWORD'] = ''
+app.config['MYSQL_DB'] = 'college_predictor'
 
 # root@127.0.0.1:3306
-
-
-# class User(db.Model):
-#     id=db.Column(db.Integer,primary_key=True)
-#     username=db.Column(db.String(50)) 
-#     rank=db.Column(db.Integer )
-#     gender=db.Column(db.String(50)) 
-#     category=db.Column(db.String(50)) 
-
-
-# class Demo(db.Model):
-#     id=db.Column(db.Integer,primary_key=True)
-#     college_name=db.Column(db.String(50)) 
-#     branch=db.Column(db.String(50))
-#     cutoff=db.Column(db.Integer )
-
 
 def get_result(rank, category ,gender ):
     # low=rank-200
